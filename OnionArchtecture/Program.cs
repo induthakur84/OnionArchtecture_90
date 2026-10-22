@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Onion.Data;
 using OnionArchitecture.Data.IServices;
 using OnionArchitecture.Data.Services;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,9 @@ if (app.Environment.IsDevelopment())
 {
 
     app.MapOpenApi();
+    app.MapScalarApiReference();
+    app.MapGet("/", () => Results.Redirect("/scalar/v1"));
+    app.MapGet("/scaler", () => Results.Redirect("/scalar/v1"));
 }
 
 app.UseHttpsRedirection();
