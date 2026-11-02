@@ -20,7 +20,7 @@ namespace OnionArchitecture.API.Controllers
 
 
         [HttpPost("Create")]
-        [Authorize(Policy = "AdminOnly")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create (ProductRequestDto productRequestDto)
         {
             var result = await _productService.Create(productRequestDto);
@@ -28,7 +28,7 @@ namespace OnionArchitecture.API.Controllers
         }
 
         [HttpGet("GetAll")]
-        [Authorize(Roles= "Employee")]
+        [Authorize(Roles= "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _productService.Getall();

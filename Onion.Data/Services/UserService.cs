@@ -118,7 +118,7 @@ namespace OnionArchitecture.Data.Services
             var token = new JwtSecurityToken(
 
                 issuer: jwtSettings["Issuer"],
-                audience: jwtSettings["Audiences"],
+                audience: jwtSettings["Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(durationinMinutes),
                 signingCredentials: signingCredential
